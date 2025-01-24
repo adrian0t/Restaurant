@@ -1,0 +1,66 @@
+﻿@model OrderViewModel
+
+@{
+    ViewBag.Title = "Create Order";
+}
+<br />
+<h1>Create Order</h1>
+<br/>
+
+<div class="row">
+    @foreach (Product product in @Model.Products)
+    {
+        <div class="col-md-4 mb-4">
+            <form asp-action="AddItem" method="post">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/@(product.Name + ".jpg")" class="card-img-top fixed-image-height" alt="@product.Description">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">@product.Description</p>
+                        <p class="card-text fs-4"><strong>@product.Price.ToString("C")</strong></p>
+                        <input type="hidden" value="@product.ProductId" name="prodId" />
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="number" name="prodQty" class="form-control" placeholder="1" min="1" inputmode="numeric" value="1" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text"> szt. </span>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-primary btn-lg btn-block shadow-sm" type="submit">
+                                <i class="fas fa-plus-circle"></i> Dodaj do koszyka
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    }
+</div>
+
+@* <style>
+    .btn-primary {
+        background: linear-gradient(45deg, #1d8cf8, #3358f4);
+        border: none;
+        color: white;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #1c7de6, #2c48d2);
+        }
+
+    .input-group-text {
+        background: #f8f9fa;
+        border: 1px solid #ced4da;
+    }
+
+    .fixed-image-height {
+        height: 200px;
+        object-fit: cover;
+    }
+</style> *@

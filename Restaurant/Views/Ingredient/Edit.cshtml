@@ -1,0 +1,21 @@
+﻿@model Ingredient
+
+@{
+        ViewBag.Title = $"Edit {Model.Name} Ingredient";
+}
+
+<h2>Edytuj Składnik</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="IngredientId" />
+    <div class="form-group fs-4">
+        <label asp-for="Name">Nazwa</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <br/>
+    <div class="form-group fs-3">
+        <input type="submit" value="Zapisz" class="btn btn-primary fs-4" />
+        <a asp-action="Index" class="btn btn-danger fs-4">Anuluj</a>
+    </div>
+</form>
