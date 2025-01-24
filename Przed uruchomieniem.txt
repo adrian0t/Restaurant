@@ -1,0 +1,9 @@
+Przed uruchomieniem
+-należy zmienić serwer bazy danych  w pliku appsettings.json
+-zainicjalizować i zaktualizować bazę
+
+
+
+Dane logowania administratora:
+admin@admin.com
+zaq1@WSX
